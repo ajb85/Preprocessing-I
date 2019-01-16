@@ -1,1 +1,287 @@
-/* Compile your LESS file! */
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* Set every element's box-sizing to border-box */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+/* End of Reset */
+html {
+  font-size: 62.5%;
+}
+h2 {
+  font-size: 5rem;
+}
+p,
+ul {
+  font-size: 2rem;
+}
+ul {
+  list-style-type: circle;
+  list-style-position: inside;
+}
+th {
+  font-weight: 800;
+  font-size: 1.8rem;
+}
+td {
+  font-size: 1.6rem;
+}
+.container {
+  background: #fff;
+  max-width: 1000px;
+  margin: auto;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ececec;
+  background-image: -webkit-gradient(linear, left top, right top, from(#ececec), to(#0c8197));
+  background-image: -webkit-linear-gradient(left, #ececec, #0c8197);
+  background-image: -moz-linear-gradient(left, #ececec, #0c8197);
+  background-image: -ms-linear-gradient(left, #ececec, #0c8197);
+  background-image: -o-linear-gradient(left, #ececec, #0c8197);
+  border-bottom: 1px solid black;
+}
+@media (max-width: 500px) {
+  header {
+    flex-direction: column;
+  }
+}
+header .h2Container {
+  margin-left: 15px;
+}
+header .h2Container h1 {
+  color: #1b0e3a;
+  font-size: 7rem;
+}
+header .linksContainer {
+  margin-right: 15px;
+}
+header .linksContainer h2 {
+  font-size: 3rem;
+  text-align: center;
+}
+header .linksContainer nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-size: 2rem;
+  width: 100%;
+}
+header .linksContainer nav a {
+  text-decoration: none;
+  color: #fffbaa;
+}
+header .linksContainer nav a:hover {
+  text-decoration: underline;
+}
+@media (max-width: 500px) {
+  header .linksContainer nav {
+    margin-top: 5px;
+  }
+}
+main {
+  margin-top: 20px;
+}
+main h2 {
+  text-decoration: underline;
+  margin-bottom: 20px;
+}
+main section {
+  background: #ececec;
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+}
+main section img.mug {
+  display: block;
+  max-width: 100px;
+  border-radius: 15px;
+}
+main section div h2 {
+  text-align: center;
+}
+main section div.splitDIVs {
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+main section div.summary {
+  max-width: 650px;
+  padding: 10px;
+}
+main section div.summary p {
+  margin-bottom: 20px;
+}
+main section div.summary div.ulFlex {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+main section div.fullSizeContent {
+  max-width: 1000px;
+}
+main section div.fullSizeContent table {
+  border: 1px solid grey;
+  text-align: center;
+}
+main section div.fullSizeContent table th.smTableHeader {
+  min-width: 90px;
+}
+main section div.fullSizeContent table th.mdTableHeader {
+  min-width: 130px;
+}
+main section div.fullSizeContent table th {
+  background: #0c8197;
+  border-bottom: 2px solid black;
+  color: #ececec;
+  padding: 5px;
+}
+main section div.fullSizeContent table tr:nth-child(even) {
+  background: #ececec;
+}
+main section div.fullSizeContent table tr:nth-child(odd) {
+  background: #fff;
+}
+main section div.fullSizeContent table td {
+  padding: 3px;
+}

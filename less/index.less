@@ -1,59 +1,340 @@
 // Is this working?
-/* http://meyerweb.com/eric/tools/css/reset/ 
+/* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
 }
-ol, ul {
-	list-style: none;
+ol,
+ul {
+  list-style: none;
 }
-blockquote, q {
-	quotes: none;
+blockquote,
+q {
+  quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
-
+.box-sizing (@type: border-box) {
+  -webkit-box-sizing: @type;
+  -moz-box-sizing: @type;
+  box-sizing: @type;
+}
 /* Set every element's box-sizing to border-box */
 * {
-    box-sizing: border-box;
+  .box-sizing();
+  //line-height: 1.1;
+}
+html,
+body {
+  height: 100%;
 }
 
-html, body {
-    height: 100%;
+/* End of Reset */
+
+// Color Variables
+@primary: #ececec; //dark teal
+@primaryLight: #0c8197;
+@primaryLightest: #02c4e8;
+
+@secondary: #1b0e3a; //dark black --> purple
+@secondaryLight: #715aaa;
+@secondaryLightest: #b69df2;
+
+@tertiary: #5c4512; // dark orange
+@tertiaryLight: #aa8739;
+@tertiaryLightest: #f8cf75;
+
+@accent: #fffbaa; // light yellow
+
+// Mixins
+.flexAlign(@justify, @align) {
+  //Set flex & its attributes
+  display: flex;
+  //flex-direction: if((@direction), row, @direction);
+  justify-content: @justify;
+  align-items: @align;
+}
+.createGradient (@startColor, @endColor) {
+  background-color: @startColor;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(@startColor),
+    to(@endColor)
+  );
+  background-image: -webkit-linear-gradient(left, @startColor, @endColor);
+  background-image: -moz-linear-gradient(left, @startColor, @endColor);
+  background-image: -ms-linear-gradient(left, @startColor, @endColor);
+  background-image: -o-linear-gradient(left, @startColor, @endColor);
 }
 
+// General Styles
+html {
+  //Setting 1rem === 10px
+  font-size: 62.5%;
+}
+h2 {
+  font-size: 5rem;
+}
+p,
+ul {
+  font-size: 2rem;
+}
+body {
+  //background: @primary;
+}
+ul {
+  list-style-type: circle;
+  list-style-position: inside;
+}
+th {
+  font-weight: 800;
+  font-size: 1.8rem;
+}
+td {
+  font-size: 1.6rem;
+}
+
+//Title on the left, position & links on the right
+.container {
+  background: #fff;
+  max-width: 1000px;
+  margin: auto;
+  //color: @tertiaryLightest;
+}
+header {
+  .flexAlign(space-between, center);
+  @media (max-width: 500px) {
+    flex-direction: column;
+  }
+  .createGradient(@primary, @primaryLight);
+  border-bottom: 1px solid black;
+
+  .h2Container {
+    margin-left: 15px;
+    // Title styles
+    h1 {
+      color: @secondary;
+      font-size: 7rem;
+    }
+  }
+  // Position & Link text styles
+  .linksContainer {
+    margin-right: 15px;
+    h2 {
+      font-size: 3rem;
+      text-align: center;
+    }
+    nav {
+      .flexAlign(space-between, flex-end);
+      font-size: 2rem;
+      width: 100%;
+      a {
+        text-decoration: none;
+        color: @accent;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    }
+    @media (max-width: 500px) {
+      nav {
+        margin-top: 5px;
+      }
+    }
+  }
+}
+
+main {
+  margin-top: 20px;
+  h2 {
+    text-decoration: underline;
+    margin-bottom: 20px;
+  }
+  //Sections are purple boxes that house all
+  //main content on the page
+  section {
+    background: @primary;
+    border: 1px solid black;
+    // Image on left, content on right
+    .flexAlign(space-evenly, flex-start);
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    //Image properties
+    img.mug {
+      display: block;
+      max-width: 100px;
+      border-radius: 15px;
+    }
+    // General styles for all divs in a section
+    div {
+      h2 {
+        text-align: center;
+      }
+    }
+    // Content here is split between two vertical divs.
+    // Title on top, info in the middle
+    div.splitDIVs {
+      width: 60%;
+      .flexAlign(space-between, center);
+      flex-direction: column;
+    }
+    // Meant for short text to list general infomration
+    div.summary {
+      max-width: 650px;
+      padding: 10px;
+      p {
+        margin-bottom: 20px;
+      }
+      div.ulFlex {
+        .flexAlign(space-around, center);
+      }
+    }
+    // Content that'll house heavier info so
+    // it's allowed more space;
+    div.fullSizeContent {
+      max-width: 1000px;
+      table {
+        border: 1px solid grey;
+        text-align: center;
+        th.smTableHeader {
+          min-width: 90px;
+        }
+        th.mdTableHeader {
+          min-width: 130px;
+        }
+        th {
+          background: @primaryLight;
+          border-bottom: 2px solid black;
+          color: @primary;
+          padding: 5px;
+        }
+        tr:nth-child(even) {
+          background: @primary;
+        }
+        tr:nth-child(odd) {
+          background: #fff;
+        }
+        td {
+          padding: 3px;
+        }
+      }
+    }
+  }
+}
