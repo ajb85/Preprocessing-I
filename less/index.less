@@ -136,6 +136,7 @@ table {
 /* Set every element's box-sizing to border-box */
 * {
   .box-sizing();
+
   //line-height: 1.1;
 }
 html,
@@ -190,6 +191,7 @@ html {
 }
 h2 {
   font-size: 5rem;
+  font-family: "Noto Serif", serif;
 }
 p,
 ul {
@@ -233,6 +235,11 @@ header {
       font-size: 7rem;
     }
   }
+  @media (max-width: 500px) {
+    .h2Container {
+      margin-left: 0;
+    }
+  }
   // Position & Link text styles
   .linksContainer {
     margin-right: 15px;
@@ -272,7 +279,7 @@ main {
     background: @primary;
     border: 1px solid black;
     // Image on left, content on right
-    .flexAlign(space-evenly, flex-start);
+    .flexAlign(space-evenly, center);
     padding: 15px;
     margin-bottom: 20px;
     border-radius: 15px;
